@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.24
-Release  : 7
+Release  : 8
 URL      : https://download.gnome.org/sources/gtk-doc/1.24/gtk-doc-1.24.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.24/gtk-doc-1.24.tar.xz
 Summary  : GTK+ DocBook Documentation Generator
