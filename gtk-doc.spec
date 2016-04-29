@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.25
-Release  : 9
+Release  : 10
 URL      : https://download.gnome.org/sources/gtk-doc/1.25/gtk-doc-1.25.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.25/gtk-doc-1.25.tar.xz
 Summary  : GTK+ DocBook Documentation Generator
