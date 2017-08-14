@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.26
-Release  : 14
+Release  : 15
 URL      : https://download.gnome.org/sources/gtk-doc/1.26/gtk-doc-1.26.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.26/gtk-doc-1.26.tar.xz
 Summary  : API documentation generator
@@ -13,6 +13,7 @@ License  : GFDL-1.1 GPL-2.0
 Requires: gtk-doc-bin
 Requires: gtk-doc-data
 Requires: gtk-doc-doc
+Requires: six
 BuildRequires : bc
 BuildRequires : docbook-utils
 BuildRequires : docbook-xml
@@ -78,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1502462136
+export SOURCE_DATE_EPOCH=1502729541
 %configure --disable-static --with-xml-catalog=/usr/share/defaults/xml/catalog
 make V=1  %{?_smp_mflags}
 
@@ -90,7 +91,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1502462136
+export SOURCE_DATE_EPOCH=1502729541
 rm -rf %{buildroot}
 %make_install
 
