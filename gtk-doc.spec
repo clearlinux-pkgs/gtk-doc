@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.26
-Release  : 16
+Release  : 17
 URL      : https://download.gnome.org/sources/gtk-doc/1.26/gtk-doc-1.26.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.26/gtk-doc-1.26.tar.xz
 Summary  : API documentation generator
@@ -25,6 +25,7 @@ BuildRequires : openjade-dev
 BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gobject-2.0)
 BuildRequires : vim
+Patch1: noversion.patch
 
 %description
 GTK+ DocBook Documentation Generator
@@ -71,13 +72,14 @@ doc components for the gtk-doc package.
 
 %prep
 %setup -q -n gtk-doc-1.26
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1506535597
+export SOURCE_DATE_EPOCH=1508375151
 %configure --disable-static --with-xml-catalog=/usr/share/defaults/xml/catalog PYTHON=/usr/bin/python3
 make V=1  %{?_smp_mflags}
 
@@ -89,7 +91,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1506535597
+export SOURCE_DATE_EPOCH=1508375151
 rm -rf %{buildroot}
 %make_install
 
@@ -131,43 +133,30 @@ rm -rf %{buildroot}
 /usr/share/gtk-doc/data/version-greater-or-equal.xsl
 /usr/share/gtk-doc/python/gtkdoc/__init__.py
 /usr/share/gtk-doc/python/gtkdoc/__init__.pyc
-/usr/share/gtk-doc/python/gtkdoc/__init__.pyo
 /usr/share/gtk-doc/python/gtkdoc/check.py
 /usr/share/gtk-doc/python/gtkdoc/check.pyc
-/usr/share/gtk-doc/python/gtkdoc/check.pyo
 /usr/share/gtk-doc/python/gtkdoc/common.py
 /usr/share/gtk-doc/python/gtkdoc/common.pyc
-/usr/share/gtk-doc/python/gtkdoc/common.pyo
 /usr/share/gtk-doc/python/gtkdoc/config.py
 /usr/share/gtk-doc/python/gtkdoc/config.pyc
-/usr/share/gtk-doc/python/gtkdoc/config.pyo
 /usr/share/gtk-doc/python/gtkdoc/fixxref.py
 /usr/share/gtk-doc/python/gtkdoc/fixxref.pyc
-/usr/share/gtk-doc/python/gtkdoc/fixxref.pyo
 /usr/share/gtk-doc/python/gtkdoc/md_to_db.py
 /usr/share/gtk-doc/python/gtkdoc/md_to_db.pyc
-/usr/share/gtk-doc/python/gtkdoc/md_to_db.pyo
 /usr/share/gtk-doc/python/gtkdoc/mkdb.py
 /usr/share/gtk-doc/python/gtkdoc/mkdb.pyc
-/usr/share/gtk-doc/python/gtkdoc/mkdb.pyo
 /usr/share/gtk-doc/python/gtkdoc/mkhtml.py
 /usr/share/gtk-doc/python/gtkdoc/mkhtml.pyc
-/usr/share/gtk-doc/python/gtkdoc/mkhtml.pyo
 /usr/share/gtk-doc/python/gtkdoc/mkman.py
 /usr/share/gtk-doc/python/gtkdoc/mkman.pyc
-/usr/share/gtk-doc/python/gtkdoc/mkman.pyo
 /usr/share/gtk-doc/python/gtkdoc/mkpdf.py
 /usr/share/gtk-doc/python/gtkdoc/mkpdf.pyc
-/usr/share/gtk-doc/python/gtkdoc/mkpdf.pyo
 /usr/share/gtk-doc/python/gtkdoc/rebase.py
 /usr/share/gtk-doc/python/gtkdoc/rebase.pyc
-/usr/share/gtk-doc/python/gtkdoc/rebase.pyo
 /usr/share/gtk-doc/python/gtkdoc/scan.py
 /usr/share/gtk-doc/python/gtkdoc/scan.pyc
-/usr/share/gtk-doc/python/gtkdoc/scan.pyo
 /usr/share/gtk-doc/python/gtkdoc/scangobj.py
 /usr/share/gtk-doc/python/gtkdoc/scangobj.pyc
-/usr/share/gtk-doc/python/gtkdoc/scangobj.pyo
 
 %files dev
 %defattr(-,root,root,-)
