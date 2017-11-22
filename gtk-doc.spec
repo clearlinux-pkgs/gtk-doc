@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.26
-Release  : 18
+Release  : 19
 URL      : https://download.gnome.org/sources/gtk-doc/1.26/gtk-doc-1.26.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.26/gtk-doc-1.26.tar.xz
 Summary  : API documentation generator
@@ -26,6 +26,7 @@ BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gobject-2.0)
 BuildRequires : vim
 Patch1: noversion.patch
+Patch2: 0001-Always-open-files-in-text-mode-and-always-use-utf-8.patch
 
 %description
 GTK+ DocBook Documentation Generator
@@ -73,13 +74,14 @@ doc components for the gtk-doc package.
 %prep
 %setup -q -n gtk-doc-1.26
 %patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1508375151
+export SOURCE_DATE_EPOCH=1511386110
 %configure --disable-static --with-xml-catalog=/usr/share/defaults/xml/catalog PYTHON=/usr/bin/python3
 make V=1  %{?_smp_mflags}
 
@@ -91,7 +93,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1508375151
+export SOURCE_DATE_EPOCH=1511386110
 rm -rf %{buildroot}
 %make_install
 

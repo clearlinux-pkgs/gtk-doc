@@ -38,6 +38,7 @@ dconf
 docker
 edk2
 eog
+evince
 exo
 faba-icon-theme
 filesystem
@@ -100,6 +101,7 @@ libcanberra
 libcroco
 libcryptui
 libgdata
+libglade
 libgnome-keyring
 libgsystem
 libgtop
@@ -118,6 +120,7 @@ libtasn1
 libuser
 libvirt
 libvirt-glib
+libvpx
 libwnck
 libwnck3
 libxfce4ui
@@ -140,6 +143,7 @@ nautilus
 ndctl
 network-manager-applet
 nodejs
+notmuch
 numactl
 orc
 ostree
@@ -165,6 +169,7 @@ uhttpmock
 upower
 util-linux
 virt-viewer
+vlc
 vte
 wayland
 webkitgtk
