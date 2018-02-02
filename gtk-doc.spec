@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.27
-Release  : 22
+Release  : 23
 URL      : https://download.gnome.org/sources/gtk-doc/1.27/gtk-doc-1.27.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.27/gtk-doc-1.27.tar.xz
 Summary  : API documentation generator
