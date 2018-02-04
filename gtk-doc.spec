@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.27
-Release  : 23
+Release  : 24
 URL      : https://download.gnome.org/sources/gtk-doc/1.27/gtk-doc-1.27.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.27/gtk-doc-1.27.tar.xz
 Summary  : API documentation generator
@@ -79,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1517328187
+export SOURCE_DATE_EPOCH=1517763629
 %configure --disable-static --with-xml-catalog=/usr/share/defaults/xml/catalog PYTHON=/usr/bin/python3
 make  %{?_smp_mflags}
 
@@ -91,7 +91,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1517328187
+export SOURCE_DATE_EPOCH=1517763629
 rm -rf %{buildroot}
 %make_install
 
@@ -132,31 +132,31 @@ rm -rf %{buildroot}
 /usr/share/gtk-doc/data/up.png
 /usr/share/gtk-doc/data/version-greater-or-equal.xsl
 /usr/share/gtk-doc/python/gtkdoc/__init__.py
-/usr/share/gtk-doc/python/gtkdoc/__init__.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/__init__.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/check.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/common.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/config.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/fixxref.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/md_to_db.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/mkdb.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/mkhtml.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/mkman.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/mkpdf.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/rebase.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/scan.cpython-36.pyc
+/usr/share/gtk-doc/python/gtkdoc/__pycache__/scangobj.cpython-36.pyc
 /usr/share/gtk-doc/python/gtkdoc/check.py
-/usr/share/gtk-doc/python/gtkdoc/check.pyc
 /usr/share/gtk-doc/python/gtkdoc/common.py
-/usr/share/gtk-doc/python/gtkdoc/common.pyc
 /usr/share/gtk-doc/python/gtkdoc/config.py
-/usr/share/gtk-doc/python/gtkdoc/config.pyc
 /usr/share/gtk-doc/python/gtkdoc/fixxref.py
-/usr/share/gtk-doc/python/gtkdoc/fixxref.pyc
 /usr/share/gtk-doc/python/gtkdoc/md_to_db.py
-/usr/share/gtk-doc/python/gtkdoc/md_to_db.pyc
 /usr/share/gtk-doc/python/gtkdoc/mkdb.py
-/usr/share/gtk-doc/python/gtkdoc/mkdb.pyc
 /usr/share/gtk-doc/python/gtkdoc/mkhtml.py
-/usr/share/gtk-doc/python/gtkdoc/mkhtml.pyc
 /usr/share/gtk-doc/python/gtkdoc/mkman.py
-/usr/share/gtk-doc/python/gtkdoc/mkman.pyc
 /usr/share/gtk-doc/python/gtkdoc/mkpdf.py
-/usr/share/gtk-doc/python/gtkdoc/mkpdf.pyc
 /usr/share/gtk-doc/python/gtkdoc/rebase.py
-/usr/share/gtk-doc/python/gtkdoc/rebase.pyc
 /usr/share/gtk-doc/python/gtkdoc/scan.py
-/usr/share/gtk-doc/python/gtkdoc/scan.pyc
 /usr/share/gtk-doc/python/gtkdoc/scangobj.py
-/usr/share/gtk-doc/python/gtkdoc/scangobj.pyc
 
 %files dev
 %defattr(-,root,root,-)

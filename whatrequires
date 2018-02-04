@@ -102,6 +102,7 @@ libXi
 libXmu
 libXt
 libXtst
+libbytesize
 libcanberra
 libcroco
 libcryptui
