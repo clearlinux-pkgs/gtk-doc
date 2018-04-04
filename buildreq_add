@@ -6,3 +6,4 @@ libxml2-dev
 libxslt-bin
 openjade-dev
 libxml2-python
+six
