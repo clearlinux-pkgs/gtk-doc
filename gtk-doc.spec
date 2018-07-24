@@ -4,15 +4,15 @@
 #
 Name     : gtk-doc
 Version  : 1.28
-Release  : 27
+Release  : 28
 URL      : https://download.gnome.org/sources/gtk-doc/1.28/gtk-doc-1.28.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.28/gtk-doc-1.28.tar.xz
 Summary  : API documentation generator
 Group    : Development/Tools
 License  : GFDL-1.1 GPL-2.0
 Requires: gtk-doc-bin
+Requires: gtk-doc-license
 Requires: gtk-doc-data
-Requires: gtk-doc-doc
 Requires: six
 BuildRequires : bc
 BuildRequires : docbook-utils
@@ -39,6 +39,7 @@ used to document application code.
 Summary: bin components for the gtk-doc package.
 Group: Binaries
 Requires: gtk-doc-data
+Requires: gtk-doc-license
 
 %description bin
 bin components for the gtk-doc package.
@@ -71,6 +72,14 @@ Group: Documentation
 doc components for the gtk-doc package.
 
 
+%package license
+Summary: license components for the gtk-doc package.
+Group: Default
+
+%description license
+license components for the gtk-doc package.
+
+
 %prep
 %setup -q -n gtk-doc-1.28
 %patch1 -p1
@@ -80,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522858922
+export SOURCE_DATE_EPOCH=1532462731
 %configure --disable-static --with-xml-catalog=/usr/share/defaults/xml/catalog PYTHON=/usr/bin/python3
 make  %{?_smp_mflags}
 
@@ -92,8 +101,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1522858922
+export SOURCE_DATE_EPOCH=1532462731
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/gtk-doc
+cp COPYING %{buildroot}/usr/share/doc/gtk-doc/COPYING
+cp COPYING-DOCS %{buildroot}/usr/share/doc/gtk-doc/COPYING-DOCS
 %make_install
 
 %files
@@ -131,20 +143,6 @@ rm -rf %{buildroot}
 /usr/share/gtk-doc/data/up.png
 /usr/share/gtk-doc/data/version-greater-or-equal.xsl
 /usr/share/gtk-doc/python/gtkdoc/__init__.py
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/__init__.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/check.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/common.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/config.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/fixxref.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/md_to_db.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/mkdb.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/mkhtml.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/mkhtml2.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/mkman.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/mkpdf.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/rebase.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/scan.cpython-36.pyc
-/usr/share/gtk-doc/python/gtkdoc/__pycache__/scangobj.cpython-36.pyc
 /usr/share/gtk-doc/python/gtkdoc/check.py
 /usr/share/gtk-doc/python/gtkdoc/common.py
 /usr/share/gtk-doc/python/gtkdoc/config.py
@@ -168,7 +166,7 @@ rm -rf %{buildroot}
 /usr/share/aclocal/*.m4
 
 %files doc
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/help/C/gtk-doc-manual/fdl-appendix.xml
 /usr/share/help/C/gtk-doc-manual/index.docbook
 /usr/share/help/bn_IN/gtk-doc-manual/fdl-appendix.xml
@@ -201,3 +199,8 @@ rm -rf %{buildroot}
 /usr/share/help/te/gtk-doc-manual/index.docbook
 /usr/share/help/zh_CN/gtk-doc-manual/fdl-appendix.xml
 /usr/share/help/zh_CN/gtk-doc-manual/index.docbook
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/gtk-doc/COPYING
+/usr/share/doc/gtk-doc/COPYING-DOCS
