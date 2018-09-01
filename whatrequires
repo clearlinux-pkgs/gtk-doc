@@ -2,6 +2,7 @@
 GConf
 ModemManager
 NetworkManager
+Thunar
 accountsservice
 atk
 cairo
@@ -55,11 +56,13 @@ harfbuzz
 ibus
 intel-gpu-tools
 kmod
+libappindicator
 libbytesize
 libcanberra
 libchamplain
 libcroco
 libcryptui
+libdbusmenu
 libgdata
 libglade
 libgnome-keyring
@@ -68,6 +71,7 @@ libgtop
 libgudev
 libgusb
 libidn
+liblangtag
 libmbim
 libmediaart
 libnice
@@ -93,6 +97,9 @@ orc
 ostree
 pango
 polkit
+raptor2
+rasqal
+redland
 rest
 spice-gtk
 telepathy-glib
