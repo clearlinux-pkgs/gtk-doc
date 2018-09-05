@@ -14,7 +14,6 @@ cogl
 colord
 colord-gtk
 compat-gtksourceview-soname3
-dconf
 evince
 exo
 farstream
@@ -51,7 +50,6 @@ gtk+
 gtk3
 gtksourceview
 gtkspell3
-gvfs
 harfbuzz
 ibus
 intel-gpu-tools

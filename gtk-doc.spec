@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.29
-Release  : 30
+Release  : 31
 URL      : https://download.gnome.org/sources/gtk-doc/1.29/gtk-doc-1.29.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.29/gtk-doc-1.29.tar.xz
 Summary  : API documentation generator
@@ -14,10 +14,12 @@ Requires: gtk-doc-bin
 Requires: gtk-doc-license
 Requires: gtk-doc-data
 Requires: six
+Requires: source-highlight
 BuildRequires : bc
 BuildRequires : buildreq-gnome
 BuildRequires : docbook-utils
 BuildRequires : docbook-xml
+BuildRequires : itstool
 BuildRequires : libxml2-dev
 BuildRequires : libxml2-python
 BuildRequires : libxslt-bin
@@ -27,6 +29,7 @@ BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gobject-2.0)
 BuildRequires : six
 BuildRequires : source-highlight
+BuildRequires : vim
 Patch1: noversion.patch
 
 %description
@@ -90,7 +93,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535827774
+export SOURCE_DATE_EPOCH=1536125719
 %configure --disable-static --with-xml-catalog=/usr/share/defaults/xml/catalog PYTHON=/usr/bin/python3
 make  %{?_smp_mflags}
 
@@ -102,7 +105,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1535827774
+export SOURCE_DATE_EPOCH=1536125719
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/gtk-doc
 cp COPYING %{buildroot}/usr/share/doc/gtk-doc/COPYING
