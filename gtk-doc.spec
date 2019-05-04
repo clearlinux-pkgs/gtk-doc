@@ -4,15 +4,15 @@
 #
 Name     : gtk-doc
 Version  : 1.29
-Release  : 33
+Release  : 34
 URL      : https://download.gnome.org/sources/gtk-doc/1.29/gtk-doc-1.29.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.29/gtk-doc-1.29.tar.xz
-Summary  : API documentation generator
+Summary  : Documentation tool for public library API
 Group    : Development/Tools
 License  : GFDL-1.1 GPL-2.0
-Requires: gtk-doc-bin
-Requires: gtk-doc-license
-Requires: gtk-doc-data
+Requires: gtk-doc-bin = %{version}-%{release}
+Requires: gtk-doc-data = %{version}-%{release}
+Requires: gtk-doc-license = %{version}-%{release}
 Requires: six
 Requires: source-highlight
 BuildRequires : bc
@@ -42,8 +42,8 @@ used to document application code.
 %package bin
 Summary: bin components for the gtk-doc package.
 Group: Binaries
-Requires: gtk-doc-data
-Requires: gtk-doc-license
+Requires: gtk-doc-data = %{version}-%{release}
+Requires: gtk-doc-license = %{version}-%{release}
 
 %description bin
 bin components for the gtk-doc package.
@@ -60,9 +60,10 @@ data components for the gtk-doc package.
 %package dev
 Summary: dev components for the gtk-doc package.
 Group: Development
-Requires: gtk-doc-bin
-Requires: gtk-doc-data
-Provides: gtk-doc-devel
+Requires: gtk-doc-bin = %{version}-%{release}
+Requires: gtk-doc-data = %{version}-%{release}
+Provides: gtk-doc-devel = %{version}-%{release}
+Requires: gtk-doc = %{version}-%{release}
 
 %description dev
 dev components for the gtk-doc package.
@@ -93,7 +94,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536125719
+export SOURCE_DATE_EPOCH=1557012297
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static --with-xml-catalog=/usr/share/defaults/xml/catalog PYTHON=/usr/bin/python3
 make  %{?_smp_mflags}
 
@@ -105,11 +113,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1536125719
+export SOURCE_DATE_EPOCH=1557012297
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/gtk-doc
-cp COPYING %{buildroot}/usr/share/doc/gtk-doc/COPYING
-cp COPYING-DOCS %{buildroot}/usr/share/doc/gtk-doc/COPYING-DOCS
+mkdir -p %{buildroot}/usr/share/package-licenses/gtk-doc
+cp COPYING %{buildroot}/usr/share/package-licenses/gtk-doc/COPYING
+cp COPYING-DOCS %{buildroot}/usr/share/package-licenses/gtk-doc/COPYING-DOCS
 %make_install
 
 %files
@@ -205,6 +213,6 @@ cp COPYING-DOCS %{buildroot}/usr/share/doc/gtk-doc/COPYING-DOCS
 /usr/share/help/zh_CN/gtk-doc-manual/index.docbook
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/gtk-doc/COPYING
-/usr/share/doc/gtk-doc/COPYING-DOCS
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/gtk-doc/COPYING
+/usr/share/package-licenses/gtk-doc/COPYING-DOCS
