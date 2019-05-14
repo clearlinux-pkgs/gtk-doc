@@ -1,2 +1,3 @@
 Configure miss: dblatex
 Configure miss: whether to enable runtime debugging code
+Configure miss: python3 module: "pygments"
