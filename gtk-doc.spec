@@ -4,16 +4,17 @@
 #
 Name     : gtk-doc
 Version  : 1.30
-Release  : 37
+Release  : 38
 URL      : https://download.gnome.org/sources/gtk-doc/1.30/gtk-doc-1.30.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.30/gtk-doc-1.30.tar.xz
-Summary  : API documentation generator
+Summary  : Documentation tool for public library API
 Group    : Development/Tools
 License  : GFDL-1.1 GPL-2.0
 Requires: gtk-doc-bin = %{version}-%{release}
 Requires: gtk-doc-data = %{version}-%{release}
 Requires: gtk-doc-license = %{version}-%{release}
 Requires: Pygments
+Requires: libxslt
 Requires: six
 Requires: source-highlight
 BuildRequires : Pygments
@@ -23,6 +24,7 @@ BuildRequires : docbook-utils
 BuildRequires : docbook-xml
 BuildRequires : libxml2-dev
 BuildRequires : libxml2-python
+BuildRequires : libxslt
 BuildRequires : libxslt-bin
 BuildRequires : openjade-dev
 BuildRequires : pkgconfig(glib-2.0)
@@ -64,6 +66,7 @@ Requires: gtk-doc-bin = %{version}-%{release}
 Requires: gtk-doc-data = %{version}-%{release}
 Provides: gtk-doc-devel = %{version}-%{release}
 Requires: gtk-doc = %{version}-%{release}
+Requires: gtk-doc = %{version}-%{release}
 
 %description dev
 dev components for the gtk-doc package.
@@ -95,8 +98,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1558504627
-export GCC_IGNORE_WERROR=1
+export SOURCE_DATE_EPOCH=1559573922
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -115,7 +117,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1558504627
+export SOURCE_DATE_EPOCH=1559573922
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk-doc
 cp COPYING %{buildroot}/usr/share/package-licenses/gtk-doc/COPYING
