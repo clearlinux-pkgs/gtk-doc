@@ -6,6 +6,7 @@ PackageKit
 Thunar
 accountsservice
 amtk
+brasero
 cairo
 cheese
 clutter
@@ -26,7 +27,6 @@ fwupd
 garcon
 gcab
 gcr
-gdk-pixbuf
 gdl
 geoclue
 geocode-glib
@@ -39,8 +39,8 @@ gnome-online-accounts
 gnome-panel
 gnome-software
 gnutls
-gobject-introspection
 goocanvas
+gsequencer
 gsound
 gspell
 gst-plugins-bad
@@ -52,7 +52,6 @@ gstreamer-vaapi
 gtk+
 gtk3
 gtkglext
-gtksourceview
 gtkspell3
 gupnp-av
 harfbuzz
@@ -75,8 +74,10 @@ libgsystem
 libgtop
 libgudev
 libgusb
+libical
 libidn
 libidn2
+libiptcdata
 liblangtag
 libmbim
 libmediaart
@@ -84,7 +85,6 @@ libmodulemd
 libnice
 libnotify
 libosinfo
-libpeas
 libpsl
 libqmi
 librsvg
@@ -100,6 +100,7 @@ libxklavier
 libzapojit
 lightdm
 menu-cache
+mvn-arrow
 nautilus
 network-manager-applet
 oath-toolkit
@@ -122,8 +123,8 @@ udisks2
 uhttpmock
 upower
 util-linux
-vte
 xfce4-panel
 xfconf
+xmlb
 xmlsec1
 yelp
