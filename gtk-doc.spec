@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.32
-Release  : 39
+Release  : 40
 URL      : https://download.gnome.org/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz
 Summary  : API documentation generator
@@ -88,6 +88,7 @@ license components for the gtk-doc package.
 
 %prep
 %setup -q -n gtk-doc-1.32
+cd %{_builddir}/gtk-doc-1.32
 %patch1 -p1
 
 %build
@@ -95,14 +96,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568128002
+export SOURCE_DATE_EPOCH=1586235676
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static --with-xml-catalog=/usr/share/defaults/xml/catalog PYTHON=/usr/bin/python3
 make  %{?_smp_mflags}
@@ -115,11 +116,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1568128002
+export SOURCE_DATE_EPOCH=1586235676
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk-doc
-cp COPYING %{buildroot}/usr/share/package-licenses/gtk-doc/COPYING
-cp COPYING-DOCS %{buildroot}/usr/share/package-licenses/gtk-doc/COPYING-DOCS
+cp %{_builddir}/gtk-doc-1.32/COPYING %{buildroot}/usr/share/package-licenses/gtk-doc/dfac199a7539a404407098a2541b9482279f690d
+cp %{_builddir}/gtk-doc-1.32/COPYING-DOCS %{buildroot}/usr/share/package-licenses/gtk-doc/5e7b36dfb18c7b8002bb9c41f87b65d280abd2ae
 %make_install
 
 %files
@@ -217,5 +218,5 @@ cp COPYING-DOCS %{buildroot}/usr/share/package-licenses/gtk-doc/COPYING-DOCS
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/gtk-doc/COPYING
-/usr/share/package-licenses/gtk-doc/COPYING-DOCS
+/usr/share/package-licenses/gtk-doc/5e7b36dfb18c7b8002bb9c41f87b65d280abd2ae
+/usr/share/package-licenses/gtk-doc/dfac199a7539a404407098a2541b9482279f690d
