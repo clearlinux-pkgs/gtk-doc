@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.33.1
-Release  : 43
+Release  : 44
 URL      : https://download.gnome.org/sources/gtk-doc/1.33/gtk-doc-1.33.1.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.33/gtk-doc-1.33.1.tar.xz
 Summary  : API documentation generator
