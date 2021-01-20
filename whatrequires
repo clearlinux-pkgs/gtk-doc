@@ -101,11 +101,13 @@ spice-gtk
 telepathy-glib
 texlive
 thermal_daemon
+thermal_monitor
 udisks2
 uhttpmock
 upower
 util-linux
 xfce4-panel
+xfce4-terminal
 xfconf
 xmlb
 xmlsec1
