@@ -4,7 +4,7 @@
 #
 Name     : gtk-doc
 Version  : 1.33.2
-Release  : 45
+Release  : 46
 URL      : https://download.gnome.org/sources/gtk-doc/1.33/gtk-doc-1.33.2.tar.xz
 Source0  : https://download.gnome.org/sources/gtk-doc/1.33/gtk-doc-1.33.2.tar.xz
 Summary  : API documentation generator
@@ -13,23 +13,22 @@ License  : GFDL-1.1 GPL-2.0
 Requires: gtk-doc-bin = %{version}-%{release}
 Requires: gtk-doc-data = %{version}-%{release}
 Requires: gtk-doc-license = %{version}-%{release}
-Requires: Pygments
 Requires: libxslt
-Requires: six
+Requires: pypi(pygments)
+Requires: pypi(six)
 Requires: source-highlight
-BuildRequires : Pygments
 BuildRequires : buildreq-gnome
 BuildRequires : buildreq-meson
 BuildRequires : docbook-utils
 BuildRequires : docbook-xml
 BuildRequires : libxml2-dev
 BuildRequires : libxml2-python
-BuildRequires : libxslt
 BuildRequires : libxslt-bin
 BuildRequires : openjade-dev
 BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gobject-2.0)
-BuildRequires : six
+BuildRequires : pypi(pygments)
+BuildRequires : pypi(six)
 BuildRequires : source-highlight
 Patch1: noversion.patch
 
@@ -88,15 +87,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1611169379
+export SOURCE_DATE_EPOCH=1641842503
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %autogen --disable-static --with-xml-catalog=/usr/share/defaults/xml/catalog PYTHON=/usr/bin/python3
 make  %{?_smp_mflags}
 
@@ -108,7 +107,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1611169379
+export SOURCE_DATE_EPOCH=1641842503
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk-doc
 cp %{_builddir}/gtk-doc-1.33.2/COPYING %{buildroot}/usr/share/package-licenses/gtk-doc/dfac199a7539a404407098a2541b9482279f690d
