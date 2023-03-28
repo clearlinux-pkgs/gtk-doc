@@ -2,6 +2,7 @@
 GConf
 ModemManager
 NetworkManager
+SDL2_ttf
 Thunar
 accountsservice
 cairo
@@ -13,6 +14,7 @@ cogl
 colord
 colord-gtk
 compat-gtksourceview-soname3
+compat-rest-soname07
 evince
 exo
 farstream
@@ -26,7 +28,6 @@ gfbgraph
 gimp
 glib
 gmime
-gnome-online-accounts
 gnome-panel
 gnome-software
 gnutls
@@ -34,7 +35,6 @@ goocanvas
 gsequencer
 gspell
 gtk+
-gtk3
 gtkspell3
 harfbuzz
 ibus
@@ -52,7 +52,6 @@ libgnome-keyring
 libgsf
 libgsystem
 libgtop
-libgusb
 libical
 libidn
 libidn2
@@ -67,8 +66,6 @@ libportal
 libpsl
 libqmi
 libqrtr-glib
-librsvg
-libsecret
 libtasn1
 libuser
 libvirt-glib
@@ -84,22 +81,17 @@ orc
 osm-gps-map
 ostree
 p11-kit
-polkit
 qt6base
 qtwebengine
 raptor2
 rasqal
 redland
-rest
-rhythmbox
-spice-gtk
 telepathy-glib
 texlive
 thermal_daemon
 thermal_monitor
 udisks2
 uhttpmock
-upower
 util-linux
 xfce4-panel
 xfce4-terminal
