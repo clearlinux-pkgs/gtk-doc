@@ -5,7 +5,6 @@ NetworkManager
 SDL2_ttf
 Thunar
 accountsservice
-cairo
 cheese
 clutter
 clutter-gst
@@ -14,7 +13,6 @@ cogl
 colord
 colord-gtk
 compat-gtksourceview-soname3
-compat-rest-soname07
 evince
 exo
 farstream
@@ -24,11 +22,9 @@ garcon
 gcab
 gdl
 geocode-glib
-gfbgraph
 gimp
 glib
 gmime
-gnome-panel
 gnome-software
 gnutls
 goocanvas
@@ -47,7 +43,9 @@ libcroco
 libcryptui
 libdbusmenu
 libfm
+libfprint
 libgdata
+libgedit-amtk
 libgnome-keyring
 libgsf
 libgsystem
@@ -59,7 +57,6 @@ libiptcdata
 liblangtag
 libmbim
 libmodulemd
-libnice
 libnma
 libosinfo
 libportal
@@ -81,7 +78,6 @@ orc
 osm-gps-map
 ostree
 p11-kit
-qt6base
 qtwebengine
 raptor2
 rasqal
